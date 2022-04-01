@@ -3,8 +3,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:ibdaa/style/colorapp.dart';
 import 'package:ibdaa/screens/workers.dart';
+import '../screens/vendors_screen.dart';
 
 import '../widgets/drawer.dart';
 import 'job.dart';
@@ -50,11 +52,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final List<Map<String, Object>> _Sides = [
       {
-        'page': const Scaffold(
-          body: Center(
-            child: Text('المحلات'),
-          ),
-        ),
+        'page':  const VendorsScreen() ,
         'title': 'Scaffold 1 ',
       },
       {
