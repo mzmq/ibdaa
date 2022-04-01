@@ -4,8 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../screens/category_workers_screen.dart';
 import 'package:ibdaa/style/colorapp.dart';
-import 'package:ibdaa/screens/workers.dart';
+import 'package:ibdaa/screens/workers_details_screen.dart';
 import '../screens/vendors_screen.dart';
 
 import '../widgets/drawer.dart';
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
   int _selectedPageIndex = 0;
+
   // --------------------------------------------3) Create Select Index
   void _selectIndex(int index) {
     setState(() {
@@ -47,63 +49,15 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     final List<Map<String, Object>> _Sides = [
       {
-        'page':  const VendorsScreen() ,
+        'page': const VendorsScreen(),
         'title': 'Scaffold 1 ',
       },
       {
-        'page':  Scaffold(
-          body:  Column(
-            children: [
-              Padding(
-                padding:  EdgeInsets.all(8.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      label:  Text('Search'),
-                      hintText: 'Search Bar',
-                      suffixIcon: IconButton(
-                          onPressed: () {}, icon: Icon(Icons.search_outlined))),
-                  keyboardType: TextInputType.text,
-                ),
-              ),
-              Expanded(
-                child: Container(
-                  child: ListView(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            buildInkWellCard(context,
-                                NextPage: Workers() ,
-                                url: 'assets/images/qqq.jpg',
-                                textTitleCard: 'العهد للصيانة العامة'),
-
-                            buildInkWellCard(context,
-                                NextPage: Workers() ,
-                                url: 'assets/images/plumbing.jpg',
-                                textTitleCard: 'سباكة'),
-
-                            buildInkWellCard(context,
-                                NextPage: Workers() ,
-                                url: 'assets/images/Electrician.jpg',
-                                textTitleCard: 'كهربائي'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-
-            ],
-          ),
-        ),
+        'page': CategoryWorkersScreen(),
         'title': 'Scaffold 2 ',
       },
       {
@@ -136,82 +90,29 @@ class _HomePageState extends State<HomePage> {
         unselectedFontSize: 15,
         type: BottomNavigationBarType.fixed,
         onTap: _selectIndex,
-        selectedLabelStyle:  TextStyle(
+        selectedLabelStyle: TextStyle(
           color: darkGray,
 
         ),
         // --------------------------------------------2) Create Bottom Navigation Bar Item
-        items:  [
+        items: [
           BottomNavigationBarItem(
             backgroundColor: darkGray,
-            icon: Icon(Icons.add_business , color: gold),
+            icon: Icon(Icons.add_business, color: gold),
             label: 'Vendors',
           ),
           BottomNavigationBarItem(
             backgroundColor: darkGray,
-            icon: Icon(Icons.engineering , color: gold,),
+            icon: Icon(Icons.engineering, color: gold,),
             label: 'Workers',
           ),
           BottomNavigationBarItem(
             backgroundColor: darkGray,
-            icon: Icon(Icons.phone , color: gold,),
+            icon: Icon(Icons.phone, color: gold,),
             label: 'اتصل بنا',
           ),
         ],
       ),
     );
-
-
-  }
-
-  InkWell buildInkWellCard(BuildContext context,
-      {required String url, required String textTitleCard ,required NextPage}) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (_) => NextPage));
-      },
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        elevation: 10,
-        color: ColorStyle().lightGray,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Stack(
-            children: [
-              Image.asset(
-                url,
-                fit: BoxFit.cover,
-              ),
-              Container(
-                margin: EdgeInsets.only(top:0 , left: 90),
-
-                height: 70,
-                width: double.infinity,
-                child: Card(
-
-                  color: Colors.black87,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(bottomLeft:Radius.circular(50) )
-                  ),
-                  child: Container(
-                    child: Center(
-                      child: Text(
-                        textTitleCard,
-                        style: TextStyle(fontSize: 30, color: ColorStyle().gold , fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 }
-
-
-

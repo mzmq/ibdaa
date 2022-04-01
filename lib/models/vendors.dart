@@ -1,4 +1,6 @@
-class Vendors {
+import 'package:flutter/foundation.dart';
+
+class  Vendors with ChangeNotifier{
   String id;
 
   String title;

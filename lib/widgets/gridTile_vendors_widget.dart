@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../models/vendors.dart';
 class GridTileVendors extends StatelessWidget {
-  String title;
-
-  String ImgUrl;
 
   GridTileVendors({
     Key? key,
-    required this.title,
-    required this.ImgUrl,
+
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final getData = Provider.of<Vendors>(context) ;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: ClipRRect(
@@ -20,10 +20,10 @@ class GridTileVendors extends StatelessWidget {
         child: GridTile(
           footer: GridTileBar(
             backgroundColor: Colors.black87,
-            title: Text(title , style: TextStyle(color: Colors.white),),
+            title: Text(getData.title , style: TextStyle(color: Colors.white),),
           ),
             child: Image.network(
-          ImgUrl,
+              getData.ImgUrl,
           fit: BoxFit.cover,
         )),
       ),

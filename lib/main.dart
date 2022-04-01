@@ -3,13 +3,15 @@ import 'package:provider/provider.dart';
 
 import './models/vendors_provider.dart';
 import 'package:ibdaa/style/colorapp.dart';
-import 'package:ibdaa/screens/workers.dart';
+import 'package:ibdaa/screens/workers_details_screen.dart';
+import './models/category_provider.dart';
 import 'screens/login.dart';
 
 void main() {
   runApp( MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx)=> VendorProvider()) ,
+        ChangeNotifierProvider(create: (ctx)=> CategoryProvider()) ,
       ],
       child: MyApp()));
 }

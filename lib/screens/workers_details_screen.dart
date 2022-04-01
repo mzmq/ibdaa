@@ -4,6 +4,7 @@ import 'package:ibdaa/style/colorapp.dart';
 import 'package:ibdaa/screens/worker.dart';
 
 import '../widgets/drawer.dart';
+import '../widgets/search_bar_widget.dart';
 class Workers extends StatelessWidget {
 
 
@@ -17,6 +18,7 @@ class Workers extends StatelessWidget {
 
       body: Column(
         children: [
+          SearchBarWidget(hint: 'ابحث عن عامل') ,
           Container(
 
             padding: EdgeInsets.all(5),
