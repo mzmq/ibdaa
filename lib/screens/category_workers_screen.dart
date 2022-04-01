@@ -28,7 +28,7 @@ class CategoryWorkersScreen extends StatelessWidget {
                     InkWellWidget(
                         URL: getListCategory[i].imgUrl,
                         Title: getListCategory[i].Title,
-                        NextPage: Workers()),
+                        NextPage: Workers(id: getListCategory[i].id,)),
                   ],
                 ),
               ),
