@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 padding:  EdgeInsets.all(8.0),
                 child: TextField(
                   decoration: InputDecoration(
-                      label:  Text('Search bar'),
+                      label:  Text('Search'),
                       hintText: 'Search Bar',
                       suffixIcon: IconButton(
                           onPressed: () {}, icon: Icon(Icons.search_outlined))),
