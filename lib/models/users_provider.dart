@@ -37,13 +37,5 @@ class UserProvider with ChangeNotifier {
   List<Users> get users {
     return [..._users];
   }
-  List<Users> get categoryUsers {
-    return _users.where((element) =>element.categoryID ==  element ).toList() ;
-  }
-
- void  cateUsers (String id){
-     _users.where((element) =>element.categoryID ==  id ).toList() ;
-     notifyListeners();
-  }
 
 }
