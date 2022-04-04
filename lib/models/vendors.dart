@@ -1,21 +1,34 @@
 import 'package:flutter/foundation.dart';
 
 class  Vendors with ChangeNotifier{
-  String id;
+  final id;
 
-  String title;
+  final fNameVendor;
+  final lNameVendor;
 
-  String subTitle;
+  final subTitle;
 
-  String ImgUrl;
+  final ImgUrl;
 
-  int phoneNumber;
+  final phoneNumber;
+  final address ;
+
+  bool isFav ;
 
   Vendors({
-    required this.id,
-    required this.title,
-    required this.subTitle,
-    required this.phoneNumber,
-    required this.ImgUrl,
+    @required this.id,
+    @required this.fNameVendor,
+    @required this.lNameVendor,
+    @ required this.subTitle,
+    @ required this.address,
+    @required this.phoneNumber,
+    @required this.ImgUrl,
+    this.isFav = false ,
   });
+
+  void ChangeFav (){
+    isFav = !isFav ;
+    notifyListeners();
+
+  }
 }

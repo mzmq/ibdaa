@@ -5,6 +5,7 @@ import '../screens/home.dart';
 import '../screens/job.dart';
 import '../screens/login.dart';
 import '../main.dart';
+import '../screens/favourite_vendor.dart';
 
 class DrawerApp extends StatelessWidget {
   const DrawerApp({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class DrawerApp extends StatelessWidget {
               title: Image.asset('assets/images/logo.png' , scale: 1),
             ),
             buildListTile(context ,page:HomePage()  , leadingIcon:Icons.home ,title:'Home' ),
+            buildListTile(context ,page:FavouriteVendor()  , leadingIcon:Icons.favorite  ,title:'Favourite vendor' ),
             buildListTile(context ,page:Job() , leadingIcon:Icons.work_outline_outlined ,title:'Job' ),
             buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.person_add_rounded ,title:'Add Worker' ),
             buildListTile(context ,page:loginApp()  , leadingIcon:Icons.logout_outlined ,title:'Logout' ),

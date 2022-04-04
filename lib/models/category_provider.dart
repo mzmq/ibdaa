@@ -8,7 +8,7 @@ class CategoryProvider with ChangeNotifier {
     CategoryItem(id: 'c2', Title: 'programmer', imgUrl: 'assets/images/cardimage.jpg') ,
     CategoryItem(id: 'c3', Title: 'Title1', imgUrl: 'assets/images/alhaed.png') ,
     CategoryItem(id: 'c3', Title: 'Title1', imgUrl: 'assets/images/alhaed.png') ,
-    CategoryItem(id: 'c4', Title: 'Title1', imgUrl: 'assets/images/alhaed.png') ,
+    CategoryItem(id: 'c4', Title: 'Designer', imgUrl: 'assets/images/alhaed.png') ,
     CategoryItem(id: 'c5', Title: 'Title1', imgUrl: 'assets/images/alhaed.png') ,
     CategoryItem(id: 'c6', Title: 'Title1', imgUrl: 'assets/images/alhaed.png') ,
 

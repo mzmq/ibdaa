@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ibdaa/animation/slide_animartion_list.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/search_bar_widget.dart';
@@ -25,10 +26,10 @@ class CategoryWorkersScreen extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    InkWellWidget(
+                    SlideAnimationList(i: i, getList: getListCategory, page: InkWellWidget(
                         URL: getListCategory[i].imgUrl,
                         Title: getListCategory[i].Title,
-                        NextPage: Workers(id: getListCategory[i].id,)),
+                        NextPage: Workers(id: getListCategory[i].id,))),
                   ],
                 ),
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ibdaa/animation/slide_animartion_list.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../widgets/search_bar_widget.dart';
 import '../models/vendors_provider.dart';
@@ -27,10 +29,12 @@ class VendorsScreen extends StatelessWidget {
                 ),
                 itemBuilder: (ctx , i ) => ChangeNotifierProvider.value(
                     value:getList[i] ,
-                    child: GridTileVendors())),
+                    child: SlideAnimationList(i: i, getList: getList, page: GridTileVendors())
+                )),
           ),
         ],
       ),
     );
   }
 }
+

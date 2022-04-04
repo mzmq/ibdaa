@@ -32,6 +32,16 @@ class UserProvider with ChangeNotifier {
         address: 'Jordan jabal alhousan ',
         description: 'description 3',
         imgUrl: 'assets/images/cat.jpg') ,
+
+    Users(
+        id: 'u4',
+        categoryID: 'c4',
+        titleCategory: 'programmer',
+        fName: 'Sofyan',
+        lName: 'Alshaar',
+        address: 'amman jordan tabarbor ',
+        description: 'description sofyan',
+        imgUrl: 'assets/images/Electrician.jpg') ,
   ];
 
   List<Users> get users {

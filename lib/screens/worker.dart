@@ -11,7 +11,6 @@ class Worker extends StatelessWidget {
   Worker({required this.idWorker ,required this.titleCate}) ;
   @override
   Widget build(BuildContext context) {
-    final getUser = Provider.of<Users>(context);
     final getUserDetails = Provider.of<UserProvider>(context).users;
     final getUserId = getUserDetails.where((element) => element.id == idWorker).toList() ;
 
@@ -28,7 +27,7 @@ class Worker extends StatelessWidget {
                 width: double.infinity,
                 height: 200,
                 child: Image.asset(
-                  'assets/images/cat.jpg',
+                  getUserId[i].imgUrl,
                   fit: BoxFit.cover,
                 ),
               ),
