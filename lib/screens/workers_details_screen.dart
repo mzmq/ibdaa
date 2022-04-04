@@ -62,7 +62,7 @@ Workers({required this.id }) ;
 
                   ),
                   trailing: IconButton(onPressed: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Worker())) ;
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Worker( idWorker:getCategoryId[i].id ,titleCate:getCategoryId[i].titleCategory))) ;
                   }, icon: Icon(Icons.folder_open_outlined , size: 35 , color: ColorStyle().gold,)),
                 ),
               ) ,

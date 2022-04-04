@@ -1,28 +1,30 @@
-class Users {
-  String id;
+import 'package:flutter/foundation.dart';
 
-  String categoryID;
+class Users  with ChangeNotifier{
+  final id;
 
-  String titleCategory;
+  final categoryID;
 
-  String imgUrl;
+  final titleCategory;
 
-  String fName;
+  final imgUrl;
 
-  String lName;
+  final fName;
 
-  String address;
+  final lName;
 
-  String description;
+  final address;
+
+  final description;
 
   Users({
-    required this.id,
-    required this.categoryID,
-    required this.titleCategory,
-    required this.fName ,
-    required this.lName ,
-    required this.address ,
-    required this.description ,
-    required this.imgUrl
+    @required this.id,
+    @required this.categoryID,
+    @required this.titleCategory,
+    @required this.fName ,
+    @required this.lName ,
+    @required this.address ,
+    @required this.description ,
+    @required this.imgUrl
   });
 }
