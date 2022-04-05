@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ibdaa/screens/tech_support.dart';
 
 import '../screens/category_workers_screen.dart';
 import 'package:ibdaa/style/colorapp.dart';
@@ -61,9 +62,9 @@ class _HomePageState extends State<HomePage> {
         'title': 'Scaffold 2 ',
       },
       {
-        'page': const Scaffold(
+        'page':  Scaffold(
           body: Center(
-            child: Text('0776806499'),
+            child:TectSupport() ,
           ),
         ),
         'title': 'Scaffold 3 ',
@@ -108,8 +109,8 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             backgroundColor: darkGray,
-            icon: Icon(Icons.phone, color: gold,),
-            label: 'اتصل بنا',
+            icon: Icon(Icons.support_agent_outlined, color: gold,),
+            label: 'الدعم الفني',
           ),
         ],
       ),

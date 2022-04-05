@@ -8,6 +8,7 @@ import './models/category_provider.dart';
 import 'screens/login.dart';
 import './models/users_provider.dart';
 import './models/users.dart';
+import './models/product_provider.dart';
 
 void main() {
   runApp( MultiProvider(
@@ -16,6 +17,7 @@ void main() {
         ChangeNotifierProvider(create: (ctx)=> CategoryProvider()) ,
         ChangeNotifierProvider(create: (ctx)=> UserProvider()) ,
         ChangeNotifierProvider(create: (ctx)=> Users()) ,
+        ChangeNotifierProvider(create: (ctx)=> ProductProvider()) ,
       ],
       child: MyApp()));
 }

@@ -18,15 +18,17 @@ class DrawerApp extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 60,
+              height: 30,
             ),
             ListTile(
               title: Image.asset('assets/images/logo.png' , scale: 1),
             ),
             buildListTile(context ,page:HomePage()  , leadingIcon:Icons.home ,title:'Home' ),
             buildListTile(context ,page:FavouriteVendor()  , leadingIcon:Icons.favorite  ,title:'Favourite vendor' ),
-            buildListTile(context ,page:Job() , leadingIcon:Icons.work_outline_outlined ,title:'Job' ),
-            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.person_add_rounded ,title:'Add Worker' ),
+           // buildListTile(context ,page:Job() , leadingIcon:Icons.work_outline_outlined ,title:'Job' ),
+            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.engineering_outlined ,title:'Add Worker' ),
+            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.card_travel ,title:'Add Vendor' ),
+            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.contact_support_outlined ,title:'About us' ),
             buildListTile(context ,page:loginApp()  , leadingIcon:Icons.logout_outlined ,title:'Logout' ),
 
 

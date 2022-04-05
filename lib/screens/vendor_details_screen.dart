@@ -3,6 +3,7 @@ import 'package:ibdaa/models/vendors_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ibdaa/style/colorapp.dart';
+import '../models/product_provider.dart';
 import '../models/users_provider.dart';
 import '../models/users.dart';
 
@@ -14,6 +15,7 @@ class VendorDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final getUserDetails = Provider.of<VendorProvider>(context).item;
     final getVendorId = getUserDetails.where((element) => element.id == idVendor).toList() ;
+    final getProduct = Provider.of<ProductProvider>(context).product;
 
     return Scaffold(
         appBar: AppBar(
@@ -100,7 +102,7 @@ class VendorDetailsScreen extends StatelessWidget {
             Expanded(
                 flex: 3,
                 child: GridView.builder(
-                itemCount: getUserDetails.length,
+                itemCount: getProduct.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 
               crossAxisCount: 1 ,
@@ -111,7 +113,15 @@ class VendorDetailsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
-                      child: Image.network(getUserDetails[i].ImgUrl , fit: BoxFit.cover,)),
+                      child: GridTile(
+                          header: GridTileBar(
+                            backgroundColor: Colors.black26,
+                            title:Text(getProduct[i].proName) ,
+                            trailing: Text('${getProduct[i].proPrice} JD' , style: TextStyle(color: Colors.white),),
+                            leading: IconButton(onPressed: (){}, icon: Icon(Icons.thumb_up_alt_outlined)),
+                            subtitle: Text(getProduct[i].proDescription),
+                          ),
+                          child: Image.network(getProduct[i].imgUrl, fit: BoxFit.cover,))),
             )))
           ],
         ));
