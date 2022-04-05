@@ -15,10 +15,11 @@ class productItemWidget extends StatelessWidget {
         itemBuilder: (ctx , i) => Container(
           width: 140,
           decoration: BoxDecoration(
+
             borderRadius: BorderRadius.circular(20) ,
           ),
           child: Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: const EdgeInsets.all(1.0),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: GridTile(

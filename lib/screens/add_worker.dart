@@ -64,6 +64,7 @@ class _AddWorkerState extends State<AddWorker> {
     setState(() {
 //-----------------------3-2) assign value to File
       pikedImagenew = File(image.path);
+      print(pikedImagenew);
     });
   }
 
@@ -76,51 +77,68 @@ class _AddWorkerState extends State<AddWorker> {
         backgroundColor: ColorStyle().darkGray,
         title: const Text('اضافة عامل الى ابداع'),
       ),
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  check == false
-                      ? CircleAvatar(
+      body: Form(
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    check == false
+                        ? CircleAvatar(
 
-                          backgroundImage:
-                              AssetImage('assets/images/usergold.png'),
-                          radius: 70,
-                        )
-                      : CircleAvatar(
-                          backgroundImage: pikedImagenew == null
-                              ? null
-                              : FileImage(pikedImagenew!),
-                          radius: 70,
-                        ),
-                  Container(
-                      margin: EdgeInsets.only(top: 80, left: 90),
-                      child: IconButton(
-                          onPressed: () {
-                            getImg();
-                          },
-                          icon: Icon(
-                            Icons.add_a_photo_rounded,
-                            color: Colors.white,
-                            size: 45,
-                          ))),
-                ],
-              ),
-            ],
-          ),
-          buildContainer(
+                            backgroundImage:
+                                AssetImage('assets/images/usergold.png'),
+                            radius: 70,
+                          )
+                        : CircleAvatar(
+                            backgroundImage: pikedImagenew == null
+                                ? null
+                                : FileImage(pikedImagenew!),
+                            radius: 70,
+                          ),
+                    Container(
+                        margin: EdgeInsets.only(top: 80, left: 90),
+                        child: IconButton(
+                            onPressed: () {
+                              getImg();
+                            },
+                            icon: Icon(
+                              Icons.add_a_photo_rounded,
+                              color: Colors.white,
+                              size: 45,
+                            ))),
+                  ],
+                ),
+              ],
+            ),
+            buildContainer(
+                maxLines: 1,
+                maxLength: 35,
+                labelName: 'الاسم الاول',
+                hintName: 'ادخل المقطع الاول من اسمك  ',
+                IconFeild: Icon(
+                  Icons.person_rounded,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                keyboardType: TextInputType.name,
+                w: w,
+                visi: noVis ,
+            ),
+            buildContainer(
               maxLines: 1,
               maxLength: 35,
-              labelName: 'الاسم الاول',
-              hintName: 'ادخل المقطع الاول من اسمك  ',
+              labelName: 'الاسم الاخير',
+              hintName: 'ادخل المقطع الثاني من اسمك  ',
               IconFeild: Icon(
                 Icons.person_rounded,
                 color: gold,
@@ -131,183 +149,168 @@ class _AddWorkerState extends State<AddWorker> {
               keyboardType: TextInputType.name,
               w: w,
               visi: noVis ,
-          ),
-          buildContainer(
-            maxLines: 1,
-            maxLength: 35,
-            labelName: 'الاسم الاخير',
-            hintName: 'ادخل المقطع الثاني من اسمك  ',
-            IconFeild: Icon(
-              Icons.person_rounded,
-              color: gold,
             ),
-            hintDark: hintDark,
-            insideBtn: gold,
-            lightGray: lightGray,
-            keyboardType: TextInputType.name,
-            w: w,
-            visi: noVis ,
-          ),
-          buildContainer(
-              maxLines: 1,
-              maxLength: 20,
-              labelName: 'رقم الهاتف',
-              hintName: '07x xxxx xxx ',
-              IconFeild: Icon(
-                Icons.phone,
-                color: gold,
-              ),
-              keyboardType: TextInputType.phone,
-              hintDark: hintDark,
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: w,
-              visi: noVis),
-          buildContainer(
-            keyboardType: TextInputType.visiblePassword,
-              maxLines: 1,
-              maxLength: 25,
-              labelName: 'كلمة المرور',
-              hintName: 'الرجاء ادخال كلمة المرور',
-              IconFeild: Icon(
-                Icons.lock,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              Suf: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      iconv = !iconv;
-                      print(iconv);
-                    });
-                  },
-                  icon: Icon(
-                    iconv ? Icons.visibility : Icons.visibility_off_outlined,
-                    color: gold,
-                  )),
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: w,
-              visi: iconv),
-          buildContainer(
-              maxLines: 1,
-              maxLength: 25,
+            buildContainer(
+                maxLines: 1,
+                maxLength: 20,
+                labelName: 'رقم الهاتف',
+                hintName: '07x xxxx xxx ',
+                IconFeild: Icon(
+                  Icons.phone,
+                  color: gold,
+                ),
+                keyboardType: TextInputType.phone,
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: w,
+                visi: noVis),
+            buildContainer(
               keyboardType: TextInputType.visiblePassword,
-              labelName: 'اعادة كلمة المرور',
-              hintName: 'الرجاء اعادة كتابة كلمة المرور ',
-              IconFeild: Icon(
-                Icons.lock,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              Suf: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      iconv = !iconv;
-                      print(iconv);
-                    });
-                  },
-                  icon: Icon(
-                    iconv ? Icons.visibility : Icons.visibility_off_outlined,
-                    color: gold,
-                  )),
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: w,
-              visi: iconv),
-          buildContainer(
-              maxLines: 1,
-              maxLength: 90,
-              keyboardType: TextInputType.streetAddress,
-              labelName: 'العنوان',
-              hintName: 'ادخل عنوان سكنك بالكامل',
-              IconFeild: Icon(
-                Icons.person_pin_circle_rounded,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: w,
-              visi: noVis),
-          buildContainer(
-              maxLines: 1,
-              maxLength: 2,
-              keyboardType: TextInputType.text,
-              labelName: 'الخبرة',
-              suffixText: 'سنوات',
-              hintName: 'ادخل سنوات الخبرة ',
-              IconFeild: Icon(
-                Icons.watch_later_rounded,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: w,
-              visi: noVis),
-          buildContainer(
-              maxLines: 1,
-              maxLength: 30,
-              keyboardType: TextInputType.text,
-              labelName: 'الجنسية',
-              hintName: 'ما هي جنسيتك ؟ ',
-              IconFeild: Icon(
-                Icons.public_rounded,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: w,
-              visi: noVis),
-          buildContainer(
-              maxLines: 1,
-              maxLength: 10,
-              labelName: 'تاريخ الميلاد',
-              keyboardType: TextInputType.datetime,
-              hintName: '${DateFormat('dd/MM/yyyy').format(_SelectDate)} ',
-              IconFeild: Icon(
-                Icons.calendar_today_rounded,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              insideBtn: gold,
-              lightGray: lightGray,
-              Suf: IconButton(
-                  onPressed: _datePiker,
-                  icon: Icon(
-                    Icons.event_rounded,
-                    color: gold,
-                  )),
-              w: w,
-              visi: noVis),
-          buildContainer2(
-              maxLines: 4,
-              maxLength: 500,
-              keyboardType: TextInputType.text,
-              labelName: 'الوصف',
-              hintName: 'الرجاء ادخل بعض المعلومات عنك ',
-              IconFeild: Icon(
-                Icons.description_rounded,
-                color: gold,
-              ),
-              hintDark: hintDark,
-              insideBtn: gold,
-              lightGray: lightGray,
-              w: gold,
-              visi: noVis),
+                maxLines: 1,
+                maxLength: 25,
+                labelName: 'كلمة المرور',
+                hintName: 'الرجاء ادخال كلمة المرور',
+                IconFeild: Icon(
+                  Icons.lock,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                Suf: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        iconv = !iconv;
+                        print(iconv);
+                      });
+                    },
+                    icon: Icon(
+                      iconv ? Icons.visibility : Icons.visibility_off_outlined,
+                      color: gold,
+                    )),
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: w,
+                visi: iconv),
+            buildContainer(
+                maxLines: 1,
+                maxLength: 25,
+                keyboardType: TextInputType.visiblePassword,
+                labelName: 'اعادة كلمة المرور',
+                hintName: 'الرجاء اعادة كتابة كلمة المرور ',
+                IconFeild: Icon(
+                  Icons.lock,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                Suf: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        iconv = !iconv;
+                        print(iconv);
+                      });
+                    },
+                    icon: Icon(
+                      iconv ? Icons.visibility : Icons.visibility_off_outlined,
+                      color: gold,
+                    )),
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: w,
+                visi: iconv),
+            buildContainer(
+                maxLines: 1,
+                maxLength: 90,
+                keyboardType: TextInputType.streetAddress,
+                labelName: 'العنوان',
+                hintName: 'ادخل عنوان سكنك بالكامل',
+                IconFeild: Icon(
+                  Icons.person_pin_circle_rounded,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: w,
+                visi: noVis),
+            buildContainer(
+                maxLines: 1,
+                maxLength: 2,
+                keyboardType: TextInputType.text,
+                labelName: 'الخبرة',
+                suffixText: 'سنوات',
+                hintName: 'ادخل سنوات الخبرة ',
+                IconFeild: Icon(
+                  Icons.watch_later_rounded,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: w,
+                visi: noVis),
+            buildContainer(
+                maxLines: 1,
+                maxLength: 30,
+                keyboardType: TextInputType.text,
+                labelName: 'الجنسية',
+                hintName: 'ما هي جنسيتك ؟ ',
+                IconFeild: Icon(
+                  Icons.public_rounded,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: w,
+                visi: noVis),
+            buildContainer(
+                maxLines: 1,
+                maxLength: 10,
+                labelName: 'تاريخ الميلاد',
+                keyboardType: TextInputType.datetime,
+                hintName: '${DateFormat('dd/MM/yyyy').format(_SelectDate)} ',
+                IconFeild: Icon(
+                  Icons.calendar_today_rounded,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                Suf: IconButton(
+                    onPressed: _datePiker,
+                    icon: Icon(
+                      Icons.event_rounded,
+                      color: gold,
+                    )),
+                w: w,
+                visi: noVis),
+            buildContainer2(
+                maxLines: 4,
+                maxLength: 500,
+                keyboardType: TextInputType.text,
+                labelName: 'الوصف',
+                hintName: 'الرجاء ادخل بعض المعلومات عنك ',
+                IconFeild: Icon(
+                  Icons.description_rounded,
+                  color: gold,
+                ),
+                hintDark: hintDark,
+                insideBtn: gold,
+                lightGray: lightGray,
+                w: gold,
+                visi: noVis),
 
-          Container(
-            padding: EdgeInsets.all(10),
-            width: double.infinity,
-            child: ElevatedButton.icon(onPressed: (){}, icon: Icon(Icons.save), label: Text('Save') , 
-              style: ButtonStyle(
-                backgroundColor:MaterialStateProperty.all(gold) 
+            Container(
+              padding: EdgeInsets.all(10),
+              width: double.infinity,
+              child: ElevatedButton.icon(onPressed: (){}, icon: Icon(Icons.save), label: Text('Save') , 
+                style: ButtonStyle(
+                  backgroundColor:MaterialStateProperty.all(gold) 
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -378,7 +381,7 @@ class _AddWorkerState extends State<AddWorker> {
     return Container(
         child: Padding(
       padding: EdgeInsets.only(left: 20, top: 5, bottom: 5, right: 20),
-      child: TextField(
+      child: TextFormField(
         maxLines: maxLines,
         maxLength: maxLength,
         style: TextStyle(color: insideBtn),

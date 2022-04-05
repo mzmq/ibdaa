@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final List<Map<String, Object>> _Sides = [
       {
-        'page': const VendorsScreen(),
+        'page':  VendorsScreen(),
         'title': 'Scaffold 1 ',
       },
       {

@@ -9,26 +9,35 @@ import '../widgets/gridTile_vendors_widget.dart';
 import '../widgets/product_item_widget.dart';
 
 class VendorsScreen extends StatelessWidget {
-  const VendorsScreen({Key? key}) : super(key: key);
+   VendorsScreen({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
+    final isLandscape = MediaQuery.of(context).orientation == Orientation.landscape;
     final getData = Provider.of<VendorProvider>(context);
     final getList = getData.item;
     return  Scaffold(
       body: Column(
         children: [
 
-          SearchBarWidget(hint: 'ابحث عن متجر او منتج'),
+          isLandscape ? Container() :     SearchBarWidget(hint: 'ابحث عن متجر او منتج'),
+          isLandscape ?
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 4),
+           height: 100,
+            child: productItemWidget(),
+          ):
           Expanded(
               flex: 1,
-              child: productItemWidget()) ,
+                child: productItemWidget(),
+              ),
           Expanded(
             flex: 4,
             child: GridView.builder(
               itemCount: getList.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
+                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: isLandscape ? 4 :  1,
                   mainAxisSpacing: 10 ,
                   crossAxisSpacing: 10 ,
                   childAspectRatio:3/2
