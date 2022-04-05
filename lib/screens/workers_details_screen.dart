@@ -6,6 +6,7 @@ import 'package:ibdaa/style/colorapp.dart';
 import 'package:ibdaa/screens/worker.dart';
 
 import '../widgets/drawer.dart';
+import '../widgets/product_item_widget.dart';
 import '../widgets/search_bar_widget.dart';
 import '../models/users_provider.dart';
 class Workers extends StatelessWidget {
@@ -27,6 +28,7 @@ Workers({required this.id }) ;
       body: Column(
         children: [
           SearchBarWidget(hint: 'ابحث عن عامل') ,
+           
           Expanded(
             child: ListView.builder(
               itemCount: getCategoryId.length,

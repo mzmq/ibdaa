@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 import './models/vendors_provider.dart';
 import 'package:ibdaa/style/colorapp.dart';
 import 'package:ibdaa/screens/workers_details_screen.dart';
@@ -29,6 +29,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+     localizationsDelegates: GlobalMaterialLocalizations.delegates,
+     supportedLocales: [Locale('en'), Locale('ar', 'JO')],
+     locale: Locale('ar', 'JO'),
      theme: ThemeData(
         primarySwatch: Colors.blueGrey ,
      ),

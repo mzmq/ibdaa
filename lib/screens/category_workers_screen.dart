@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ibdaa/animation/slide_animartion_list.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/product_item_widget.dart';
 import '../widgets/search_bar_widget.dart';
 import '../screens/workers_details_screen.dart';
 import '../widgets/ink_well_widget.dart';
@@ -18,7 +19,11 @@ class CategoryWorkersScreen extends StatelessWidget {
       body: Column(
           children: [
           SearchBarWidget(hint: 'Category Search'),
-      Expanded(
+           Expanded(
+              flex: 1,
+              child: productItemWidget()) ,
+           Expanded(
+        flex: 4,
         child: ListView.builder(
           itemCount: getListCategory.length,
           itemBuilder: (ctx, i) =>
