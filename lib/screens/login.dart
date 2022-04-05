@@ -44,12 +44,12 @@ Color w =  ColorStyle().w ;
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Text('Login' ,style: TextStyle(color: gold , fontSize: 25 , fontWeight: FontWeight.w300),),
+                    Text('تسجيل الدخول' ,style: TextStyle(color: gold , fontSize: 25 , fontWeight: FontWeight.w300),),
                     buildContainer(
                       maxLength:8 ,
-                        labelName: 'Phone Number',
-                        prefixText: '07',
-                        hintName: 'x xxxx xxx ',
+                        labelName: 'رقم الهاتف',
+                        prefixText: '',
+                        hintName: '07x xxxx xxx ',
                         IconFeild: Icon(
                           FontAwesomeIcons.user, color: gold,),
                         hintDark: hintDark,
@@ -60,8 +60,8 @@ Color w =  ColorStyle().w ;
                     ),
                     buildContainer(
                       maxLength: 25,
-                        labelName: 'Password',
-                        hintName: 'Enter Your Password',
+                        labelName: 'كلمة المرور',
+                        hintName: 'الرجاء ادخال كلمة المرور',
                         IconFeild: Icon(
                           FontAwesomeIcons.lock, color: gold,),
                         hintDark: hintDark,
@@ -85,7 +85,7 @@ Color w =  ColorStyle().w ;
                         Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>HomePage() ));
                       },
                       icon: Icon(FontAwesomeIcons.doorClosed),
-                      label: Text('Login'),
+                      label: Text('تسجيل الدخول'),
                       style: ButtonStyle(
                         padding:MaterialStateProperty.all(EdgeInsets.only(left: 30 , right: 30)) ,
                         backgroundColor: MaterialStateProperty.all(gold)

@@ -37,10 +37,15 @@ class GridTileVendors extends StatelessWidget {
             backgroundColor: Colors.black87,
             title: Text('${getData.fNameVendor} ${getData.lNameVendor}' , textAlign: TextAlign.center, style: TextStyle(color: Colors.white),),
           ),
-            child: Image.network(
-              getData.ImgUrl,
+            child: InkWell(
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>VendorDetailsScreen(idVendor: getData.id , titleCate: '${getData.fNameVendor} ${getData.lNameVendor}',) ));
+              },
+              child: Image.network(
+                getData.ImgUrl,
           fit: BoxFit.cover,
-        )),
+        ),
+            )),
       ),
     );
   }

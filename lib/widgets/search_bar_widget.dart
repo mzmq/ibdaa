@@ -9,7 +9,7 @@ class SearchBarWidget extends StatelessWidget {
       padding: EdgeInsets.all(8.0),
       child: TextField(
         decoration: InputDecoration(
-            label: Text('Search'),
+            label: Text('بحث'),
             hintText: hint,
             suffixIcon: IconButton(
                 onPressed: () {}, icon: Icon(Icons.search_outlined))),

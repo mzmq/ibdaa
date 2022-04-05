@@ -19,7 +19,7 @@ class VendorsScreen extends StatelessWidget {
       body: Column(
         children: [
 
-          SearchBarWidget(hint: 'Vendor Search'),
+          SearchBarWidget(hint: 'ابحث عن متجر او منتج'),
           Expanded(
               flex: 1,
               child: productItemWidget()) ,

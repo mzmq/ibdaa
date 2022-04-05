@@ -23,13 +23,13 @@ class DrawerApp extends StatelessWidget {
             ListTile(
               title: Image.asset('assets/images/logo.png' , scale: 1),
             ),
-            buildListTile(context ,page:HomePage()  , leadingIcon:Icons.home ,title:'Home' ),
-            buildListTile(context ,page:FavouriteVendor()  , leadingIcon:Icons.favorite  ,title:'Favourite vendor' ),
+            buildListTile(context ,page:HomePage()  , leadingIcon:Icons.home ,title:'الصفحة الرئيسية' ),
+            buildListTile(context ,page:FavouriteVendor()  , leadingIcon:Icons.favorite  ,title:'المتاجر المفضلة' ),
            // buildListTile(context ,page:Job() , leadingIcon:Icons.work_outline_outlined ,title:'Job' ),
-            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.engineering_outlined ,title:'Add Worker' ),
-            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.card_travel ,title:'Add Vendor' ),
-            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.contact_support_outlined ,title:'About us' ),
-            buildListTile(context ,page:loginApp()  , leadingIcon:Icons.logout_outlined ,title:'Logout' ),
+            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.engineering_outlined ,title:'اضافة عامل' ),
+            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.card_travel ,title:'اضافة متجر' ),
+            buildListTile(context ,page:AddWorker()  , leadingIcon:Icons.contact_support_outlined ,title:'عن ابداع' ),
+            buildListTile(context ,page:loginApp()  , leadingIcon:Icons.logout_outlined ,title:'تسجيل الخروج' ),
 
 
 

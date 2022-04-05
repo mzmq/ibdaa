@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
         iconTheme: IconThemeData(color: gold),
         backgroundColor: darkGray,
         title: Text(
-          'Home',
+          'ابداع',
           style: TextStyle(color: gold),
         ),
       ),
@@ -100,12 +100,12 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             backgroundColor: darkGray,
             icon: Icon(Icons.add_business, color: gold),
-            label: 'Vendors',
+            label: 'متاجر',
           ),
           BottomNavigationBarItem(
             backgroundColor: darkGray,
             icon: Icon(Icons.engineering, color: gold,),
-            label: 'Workers',
+            label: 'عمال',
           ),
           BottomNavigationBarItem(
             backgroundColor: darkGray,

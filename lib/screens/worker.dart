@@ -87,7 +87,7 @@ class Worker extends StatelessWidget {
                         maxLines: 8,
                         decoration: InputDecoration.collapsed(
                             fillColor: Colors.black,
-                            hintTextDirection: TextDirection.ltr,
+
                             hintText:getUserId[i].description.toString()),
                       ),
                     ),

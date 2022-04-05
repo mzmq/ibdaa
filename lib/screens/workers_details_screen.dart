@@ -22,7 +22,7 @@ Workers({required this.id }) ;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorStyle().darkGray,
-        title: Text('Workers'),
+        title: Text('العمال'),
       ),
 
       body: Column(

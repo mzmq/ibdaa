@@ -18,7 +18,7 @@ class CategoryWorkersScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
           children: [
-          SearchBarWidget(hint: 'Category Search'),
+          SearchBarWidget(hint: 'ابحث عن قسم..   مثال: مواد بناء'),
            Expanded(
               flex: 1,
               child: productItemWidget()) ,
@@ -31,10 +31,16 @@ class CategoryWorkersScreen extends StatelessWidget {
                 padding: EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    SlideAnimationList(i: i, getList: getListCategory, page: InkWellWidget(
-                        URL: getListCategory[i].imgUrl,
-                        Title: getListCategory[i].Title,
-                        NextPage: Workers(id: getListCategory[i].id,))),
+                    SlideAnimationList(i: i, getList: getListCategory, page: InkWell(
+                      onTap: (){
+
+                        Navigator.of(context).push(MaterialPageRoute(builder: (_) => Workers(id: getListCategory[i].id,)));
+                      },
+                      child: InkWellWidget(
+                          URL: getListCategory[i].imgUrl,
+                          Title: getListCategory[i].Title,
+                          NextPage: Workers(id: getListCategory[i].id,)),
+                    )),
                   ],
                 ),
               ),

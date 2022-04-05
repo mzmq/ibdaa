@@ -74,7 +74,7 @@ class _AddWorkerState extends State<AddWorker> {
       drawer: DrawerApp(),
       appBar: AppBar(
         backgroundColor: ColorStyle().darkGray,
-        title: const Text('Add Worker'),
+        title: const Text('اضافة عامل الى ابداع'),
       ),
       body: ListView(
         children: [
@@ -119,8 +119,8 @@ class _AddWorkerState extends State<AddWorker> {
           buildContainer(
               maxLines: 1,
               maxLength: 35,
-              labelName: 'Full Name',
-              hintName: 'Enter Your Name ',
+              labelName: 'الاسم الاول',
+              hintName: 'ادخل المقطع الاول من اسمك  ',
               IconFeild: Icon(
                 Icons.person_rounded,
                 color: gold,
@@ -133,11 +133,26 @@ class _AddWorkerState extends State<AddWorker> {
               visi: noVis ,
           ),
           buildContainer(
+            maxLines: 1,
+            maxLength: 35,
+            labelName: 'الاسم الاخير',
+            hintName: 'ادخل المقطع الثاني من اسمك  ',
+            IconFeild: Icon(
+              Icons.person_rounded,
+              color: gold,
+            ),
+            hintDark: hintDark,
+            insideBtn: gold,
+            lightGray: lightGray,
+            keyboardType: TextInputType.name,
+            w: w,
+            visi: noVis ,
+          ),
+          buildContainer(
               maxLines: 1,
               maxLength: 20,
-              labelName: 'Phone Number',
-              prefixText: '07',
-              hintName: 'x xxxx xxx ',
+              labelName: 'رقم الهاتف',
+              hintName: '07x xxxx xxx ',
               IconFeild: Icon(
                 Icons.phone,
                 color: gold,
@@ -152,8 +167,8 @@ class _AddWorkerState extends State<AddWorker> {
             keyboardType: TextInputType.visiblePassword,
               maxLines: 1,
               maxLength: 25,
-              labelName: 'Password',
-              hintName: 'Enter Your Password',
+              labelName: 'كلمة المرور',
+              hintName: 'الرجاء ادخال كلمة المرور',
               IconFeild: Icon(
                 Icons.lock,
                 color: gold,
@@ -178,8 +193,8 @@ class _AddWorkerState extends State<AddWorker> {
               maxLines: 1,
               maxLength: 25,
               keyboardType: TextInputType.visiblePassword,
-              labelName: 'Return Password',
-              hintName: 'Return Password Now ',
+              labelName: 'اعادة كلمة المرور',
+              hintName: 'الرجاء اعادة كتابة كلمة المرور ',
               IconFeild: Icon(
                 Icons.lock,
                 color: gold,
@@ -204,8 +219,8 @@ class _AddWorkerState extends State<AddWorker> {
               maxLines: 1,
               maxLength: 90,
               keyboardType: TextInputType.streetAddress,
-              labelName: 'Add Your Address',
-              hintName: 'Jordan Amman ',
+              labelName: 'العنوان',
+              hintName: 'ادخل عنوان سكنك بالكامل',
               IconFeild: Icon(
                 Icons.person_pin_circle_rounded,
                 color: gold,
@@ -219,9 +234,9 @@ class _AddWorkerState extends State<AddWorker> {
               maxLines: 1,
               maxLength: 2,
               keyboardType: TextInputType.text,
-              labelName: 'Experience',
-              suffixText: 'Years',
-              hintName: '5 Years ',
+              labelName: 'الخبرة',
+              suffixText: 'سنوات',
+              hintName: 'ادخل سنوات الخبرة ',
               IconFeild: Icon(
                 Icons.watch_later_rounded,
                 color: gold,
@@ -235,8 +250,8 @@ class _AddWorkerState extends State<AddWorker> {
               maxLines: 1,
               maxLength: 30,
               keyboardType: TextInputType.text,
-              labelName: 'Nationality',
-              hintName: 'Jordanian ',
+              labelName: 'الجنسية',
+              hintName: 'ما هي جنسيتك ؟ ',
               IconFeild: Icon(
                 Icons.public_rounded,
                 color: gold,
@@ -249,7 +264,7 @@ class _AddWorkerState extends State<AddWorker> {
           buildContainer(
               maxLines: 1,
               maxLength: 10,
-              labelName: 'Get Date',
+              labelName: 'تاريخ الميلاد',
               keyboardType: TextInputType.datetime,
               hintName: '${DateFormat('dd/MM/yyyy').format(_SelectDate)} ',
               IconFeild: Icon(
@@ -271,8 +286,8 @@ class _AddWorkerState extends State<AddWorker> {
               maxLines: 4,
               maxLength: 500,
               keyboardType: TextInputType.text,
-              labelName: 'Description',
-              hintName: 'description .......',
+              labelName: 'الوصف',
+              hintName: 'الرجاء ادخل بعض المعلومات عنك ',
               IconFeild: Icon(
                 Icons.description_rounded,
                 color: gold,
