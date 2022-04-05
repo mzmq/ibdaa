@@ -1,18 +1,17 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ibdaa/screens/tech_support.dart';
+import 'package:ibdaa/screens/product_screen/cart_screen.dart';
+import 'package:provider/provider.dart';
 
+import '../models/product_provider/cart_provider.dart';
+import '../screens/profile_screen.dart';
+import '../screens/tech_support.dart';
 import '../screens/category_workers_screen.dart';
-import 'package:ibdaa/style/colorapp.dart';
-import 'package:ibdaa/screens/workers_details_screen.dart';
+import '../style/colorapp.dart';
 import '../screens/vendors_screen.dart';
 
+import '../widgets/btn_cart_widget.dart';
 import '../widgets/drawer.dart';
-import 'job.dart';
-import 'login.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -52,6 +51,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     final List<Map<String, Object>> _Sides = [
       {
         'page':  VendorsScreen(),
@@ -79,6 +79,23 @@ class _HomePageState extends State<HomePage> {
           'ابداع',
           style: TextStyle(color: gold),
         ),
+        actions: [
+          BtnCartWidget() ,
+
+
+          SizedBox(width: 20,) ,
+          InkWell(
+            onTap: (){
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=> ProfileScreen()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50000),
+                  child: Image.network(DrawerApp.profileUrl , )),
+            ),
+          ) ,
+        ],
       ),
       drawer: DrawerApp(),
       body: _Sides[_selectedPageIndex]['page'] as Widget,

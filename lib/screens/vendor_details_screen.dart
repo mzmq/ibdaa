@@ -4,8 +4,11 @@ import 'package:provider/provider.dart';
 
 import 'package:ibdaa/style/colorapp.dart';
 import '../models/product_provider.dart';
+import '../models/product_provider/product_provider.dart';
 import '../models/users_provider.dart';
 import '../models/users.dart';
+import '../widgets/btn_cart_widget.dart';
+import '../widgets/product_widgets/product_item.dart';
 
 class VendorDetailsScreen extends StatelessWidget {
   String idVendor ;
@@ -17,10 +20,17 @@ class VendorDetailsScreen extends StatelessWidget {
     final getVendorId = getUserDetails.where((element) => element.id == idVendor).toList() ;
     final getProduct = Provider.of<ProductProvider>(context).product;
 
+    final productData = Provider.of<ProductProviderCart>(context) ;
+    final productItem =productData.item ;
+
     return Scaffold(
         appBar: AppBar(
             backgroundColor: ColorStyle().darkGray,
-            title: Text(titleCate)
+            title: Text(titleCate) ,
+          actions: [
+            BtnCartWidget() ,
+
+          ],
         ),
         body: Column(
           children: [
@@ -101,28 +111,22 @@ class VendorDetailsScreen extends StatelessWidget {
             ),
             Expanded(
                 flex: 3,
-                child: GridView.builder(
-                itemCount: getProduct.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                child:  GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    crossAxisCount: 1 ,
+                    childAspectRatio: 3 / 2,
+                  ),
+                  itemBuilder: (ctx, i) => ChangeNotifierProvider.value(value: productItem[i]  , child:  Padding(
+                    padding: const EdgeInsets.all(3.0),
+                    child: ProductItem(),
+                  )) ,
 
-              crossAxisCount: 1 ,
-              childAspectRatio: 3/2 ,
-              mainAxisSpacing: 3 ,
-              crossAxisSpacing: 3
-            ), itemBuilder: (ctx , i )=> Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: GridTile(
-                          header: GridTileBar(
-                            backgroundColor: Colors.black26,
-                            title:Text(getProduct[i].proName) ,
-                            trailing: Text('${getProduct[i].proPrice} JD' , style: TextStyle(color: Colors.white),),
-                            leading: IconButton(onPressed: (){}, icon: Icon(Icons.thumb_up_alt_outlined)),
-                            subtitle: Text(getProduct[i].proDescription),
-                          ),
-                          child: Image.network(getProduct[i].imgUrl, fit: BoxFit.cover,))),
-            )))
+
+                  itemCount: productItem.length,
+
+                ))
           ],
         ));
   }

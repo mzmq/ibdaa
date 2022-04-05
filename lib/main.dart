@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:ibdaa/models/product_provider/cart_provider.dart';
+import 'package:ibdaa/models/product_provider/orders.dart';
+import 'package:ibdaa/models/product_provider/product_provider.dart';
+import 'package:ibdaa/models/product_provider/products.dart';
+import 'package:ibdaa/screens/product_screen/cart_screen.dart';
+import 'package:ibdaa/screens/product_screen/edit_product_screen.dart';
+import 'package:ibdaa/screens/product_screen/orders_screen.dart';
+import 'package:ibdaa/screens/product_screen/product_detail_screen.dart';
+import 'package:ibdaa/screens/product_screen/product_manage_screen.dart';
+import 'package:ibdaa/screens/product_screen/products_overview_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './models/vendors_provider.dart';
 import 'package:ibdaa/style/colorapp.dart';
-import 'package:ibdaa/screens/workers_details_screen.dart';
 import './models/category_provider.dart';
 import 'screens/login.dart';
 import './models/users_provider.dart';
@@ -18,6 +27,18 @@ void main() {
         ChangeNotifierProvider(create: (ctx)=> UserProvider()) ,
         ChangeNotifierProvider(create: (ctx)=> Users()) ,
         ChangeNotifierProvider(create: (ctx)=> ProductProvider()) ,
+        ChangeNotifierProvider(
+          create: (ctx) => ProductProviderCart(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Product(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => CartProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Orders(),
+        ),
       ],
       child: MyApp()));
 }
@@ -37,6 +58,15 @@ class MyApp extends StatelessWidget {
      ),
       debugShowCheckedModeBanner: false,
       home: const loginApp(),
+      routes: {
+        ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+        CartScreen.routeName: (ctx) => CartScreen(),
+        OrderScreen.routeName: (ctx) => OrderScreen(),
+        ProductsOverviewScreen.routeName: (ctx) => ProductsOverviewScreen(),
+        ProductManage.routeName : (ctx) => ProductManage() ,
+        EditProductScreen.routeName : (ctx) => EditProductScreen(),
+
+      },
     );
   }
 }

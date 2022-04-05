@@ -14,7 +14,7 @@ class FavouriteVendor extends StatelessWidget {
     return Scaffold(
       drawer: DrawerApp(),
       appBar: AppBar(
-        title: Text('Favourite Vendor'),
+        title: Text('المتاجر المفضلة'),
       ),
       body: getFavList.length == 0
           ? Center(
