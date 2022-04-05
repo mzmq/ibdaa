@@ -24,7 +24,7 @@ class _OrderScreenState extends State<OrderScreen> {
     final getOrder = Provider.of<Orders>(context);
 
     return Scaffold(
-      drawer: DrawerApp(),
+
 
       floatingActionButton: FloatingActionButton(
         onPressed: (){

@@ -5,9 +5,9 @@ import 'package:ibdaa/screens/product_screen/product_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/product_provider/products.dart';
+import '../add_product_cart_widget.dart';
 
 class ProductItem extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final getProductProvider = Provider.of<Product>(context);
@@ -40,27 +40,13 @@ class ProductItem extends StatelessWidget {
                       : Icons.favorite_border_rounded,
                   color: Theme.of(context).colorScheme.secondary,
                 )),
-            trailing: IconButton(
-                onPressed: () {
-                  cart.addItem(getProductProvider.id, getProductProvider.title,
-                      getProductProvider.price, getProductProvider.imageUrl);
-                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(duration: Duration(seconds: 2),
-
-                    content: Text("لقد تم اضافته الى السلة!"),
-                    elevation: 10,
-                    action: SnackBarAction(
-                      label:'تراجع',
-                      onPressed: (){
-                        cart.removeSingleItem(getProductProvider.id) ;
-
-                      },
-                    ),
-                  ));
-                },
-                icon: Icon(Icons.add_shopping_cart_rounded,
-                    color: Theme.of(context).colorScheme.secondary)),
+            trailing: AddProductCartWidget(
+                title: getProductProvider.title,
+                price: getProductProvider.price,
+                id: getProductProvider.id,
+                url: getProductProvider.imageUrl ,
+                  color: Colors.white
+            ),
           ),
         ),
       ),

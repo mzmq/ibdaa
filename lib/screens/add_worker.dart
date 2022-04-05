@@ -72,7 +72,7 @@ class _AddWorkerState extends State<AddWorker> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundDark,
-      drawer: DrawerApp(),
+
       appBar: AppBar(
         backgroundColor: ColorStyle().darkGray,
         title: const Text('اضافة عامل الى ابداع'),

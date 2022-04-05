@@ -5,11 +5,12 @@ import '../../screens/product_screen/product_manage_screen.dart';
 import '../../screens/product_screen/products_overview_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
-
+   DrawerWidget({Key? key}) : super(key: key);
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      key: scaffoldKey,
       child: ListView(
         children:  [
 

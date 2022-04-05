@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-class SlideAnimationList extends StatelessWidget {
+class GridAnimationList extends StatelessWidget {
   dynamic i ;
 
   dynamic page ;
   dynamic getList ;
 
-   SlideAnimationList({Key? key , required this.i , required this.getList , required this.page}) : super(key: key);
+  GridAnimationList({Key? key , required this.i , required this.getList , required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +14,8 @@ class SlideAnimationList extends StatelessWidget {
         position: i,
         duration: Duration(milliseconds: 375),
         columnCount: getList.length,
-        child: SlideAnimation(
-            horizontalOffset: 100,
+        child: ScaleAnimation(
+
             child: FadeInAnimation(
                 duration: Duration(milliseconds: 30),
                 curve: Curves.ease,

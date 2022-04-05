@@ -12,26 +12,26 @@ class TectSupport extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            flex: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30  ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10 ,horizontal: 5),
+            height: 150,
 
-                ),
-                width: double.infinity,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(30),
-                  child: Card(
-                    color:barDark,
-                    elevation: 10,
-          child: Image.asset('assets/images/logo.png'),),
-                ),
-              )
-      ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30  ),
+
+            ),
+            width: double.infinity,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
+              child: Card(
+                color:barDark,
+                elevation: 10,
+                child: Image.asset('assets/images/logo.png'),),
+            ),
+          ),
           Expanded(
-            flex: 2,
-              child: Column(
+            flex: 4,
+              child: ListView(
                 children: [
                   ListTile(title:Text('تواصل مع الدعم الفني' , style: TextStyle(fontSize: 27) ,textAlign: TextAlign.center) ,),
                   Divider(thickness: 1 , color: gold,),
@@ -43,6 +43,8 @@ class TectSupport extends StatelessWidget {
                 ],
               )
       ),
+
+
         ],
       ),
     );

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:ibdaa/style/colorapp.dart';
 import '../models/product_provider.dart';
-import '../models/product_provider/product_provider.dart';
+import '../models/product_provider/product_provider_new.dart';
 import '../models/users_provider.dart';
 import '../models/users.dart';
 import '../widgets/btn_cart_widget.dart';

@@ -18,38 +18,41 @@ class VendorsScreen extends StatelessWidget {
     final getData = Provider.of<VendorProvider>(context);
     final getList = getData.item;
     return  Scaffold(
-      body: Column(
-        children: [
+      body:  SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
 
-          isLandscape ? Container() :     SearchBarWidget(hint: 'ابحث عن متجر او منتج'),
-          isLandscape ?
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 4),
-           height: 100,
-            child: productItemWidget(),
-          ):
-          Expanded(
-              flex: 1,
-                child: productItemWidget(),
-              ),
-          Expanded(
-            flex: 4,
-            child: GridView.builder(
-              itemCount: getList.length,
-                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: isLandscape ? 4 :  1,
-                  mainAxisSpacing: 10 ,
-                  crossAxisSpacing: 10 ,
-                  childAspectRatio:3/2
-                ),
-                itemBuilder: (ctx , i ) => ChangeNotifierProvider.value(
-                    value:getList[i] ,
-                    child: SlideAnimationList(i: i, getList: getList, page: GridTileVendors())
-                )),
-          ),
-        ],
+             Column(
+               mainAxisSize: MainAxisSize.max,
+               children: [
+                 Container(
+                   width: double.infinity,
+                  height: 230,
+                  child:   productItemWidget(),
+            ),
+                 GridView.builder(
+                     shrinkWrap: true,
+                     physics: NeverScrollableScrollPhysics(),
+                     itemCount: getList.length,
+                     gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                         crossAxisCount: isLandscape ? 4 :  1,
+                         mainAxisSpacing: 2 ,
+                         crossAxisSpacing: 2 ,
+                         childAspectRatio:3/2
+                     ),
+                     itemBuilder: (ctx , i ) => ChangeNotifierProvider.value(
+                         value:getList[i] ,
+                         child: SlideAnimationList(i: i, getList: getList, page: GridTileVendors())
+                     )),
+
+               ],
+             ),
+          ],
+        ),
       ),
     );
+
+
   }
 }
 

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ibdaa/models/product_provider/products.dart';
+import 'package:ibdaa/style/colorapp.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/product_provider/product_provider.dart';
+import '../../models/product_provider/product_provider_new.dart';
 import '../../widgets/drawer.dart';
 
 
@@ -79,148 +80,168 @@ class _EditProductScreenState extends State<EditProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerApp(),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Edit Product'),
-        actions: [IconButton(onPressed: _saveForm, icon: Icon(Icons.save))],
+        elevation: 0,
+        backgroundColor: Colors.white,
+
+        title: Text('أضافة منتج', style: TextStyle(color: ColorStyle().color1), ),
+        actions: [IconButton(onPressed: _saveForm, icon: Icon(Icons.save , color: ColorStyle().color1,))],
 
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
           key: _form,
-          child: ListView(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(label: Text('Title')),
-                textInputAction: TextInputAction.next,
-                onFieldSubmitted: (_) {
-                  FocusScope.of(context).requestFocus(_priceFocusNode);
-                },
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Title is required';
-                  }
-                },
-                onSaved: (value) {
-                  _EditedProduct = Product(
-                    title: value,
-                    description: _EditedProduct.description,
-                    price: _EditedProduct.price,
-                    imageUrl: _EditedProduct.imageUrl,
-                  );
-                },
-              ),
-              TextFormField(
-                focusNode: _priceFocusNode,
-                decoration: InputDecoration(label: Text('Price')),
-                textInputAction: TextInputAction.next,
-                onFieldSubmitted: (_) {
-                  FocusScope.of(context).requestFocus(_descriptionFocusNode);
-                },
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Price is required';
-                  }
-                  if (double.tryParse(value) == null) {
-                    return 'Please enter valid number.';
-                  }
-                  if (double.parse(value) <= 0){
-                    return 'Please enter greater zero';
-                  }
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView(
+              children: [
+                Center(
+                  child: Image.asset('assets/images/factory-production.png'),
+                ),
+                TextFormField(
 
-                },
-                onSaved: (value) {
-                  _EditedProduct = Product(
-                    title: _EditedProduct.title,
-                    description: _EditedProduct.description,
-                    price: double.parse(value!),
-                    imageUrl: _EditedProduct.imageUrl,
-                  );
-                },
-              ),
-              TextFormField(
-                maxLines: 3,
-                focusNode: _descriptionFocusNode,
-                decoration: const InputDecoration(label: Text('Description')),
-                keyboardType: TextInputType.multiline,
-                textInputAction: TextInputAction.next,
-                onFieldSubmitted: (_) {
-                  FocusScope.of(context).requestFocus(_imgFocusNode);
-                },
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter description.';
-                  }
-                  if (value.length < 10) {
-                    return 'description at lest 10 character  ';
-                  }
-                },
-                onSaved: (value) {
-                  _EditedProduct = Product(
-                    title: _EditedProduct.title,
-                    description: value,
-                    price: _EditedProduct.price,
-                    imageUrl: _EditedProduct.imageUrl,
-                  );
-                },
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Container(
-                    margin: EdgeInsets.all(8),
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.grey),
-                    ),
-                    child: _imageUrlController.text.isEmpty
-                        ? Center(child: Text('Add URL image'))
-                        : Image.network(_imageUrlController.text,
-                            fit: BoxFit.cover),
+                  decoration: InputDecoration(label: Text('اسم المنتج'),
+                      prefixIcon: Icon(Icons.shopping_basket_outlined)
+
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextFormField(
-                        controller: _imageUrlController,
-                        textInputAction: TextInputAction.done,
-                        keyboardType: TextInputType.url,
-                        focusNode: _imgFocusNode,
-                        decoration: InputDecoration(label: Text('Image URL')),
-                        onFieldSubmitted: (_) {
-                          return _saveForm() ;
-                        },
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please enter URL.';
-                          }
-                          if (!value.startsWith('http') &&
-                              !value.startsWith('https') ) {
-                            return 'Please enter valid URL.';
-                          }
-                          if (!value.endsWith('.jpg') &&
-                              !value.endsWith('.png') &&
-                              !value.endsWith('.jpeg') ) {
-                            return 'Please enter valid image URL.';
-                          }
-                        },
-                        onSaved: (value) {
-                          _EditedProduct = Product(
-                            title: _EditedProduct.title,
-                            description: _EditedProduct.description,
-                            price: _EditedProduct.price,
-                            imageUrl: value,
+                  textInputAction: TextInputAction.next,
+                  onFieldSubmitted: (_) {
+                    FocusScope.of(context).requestFocus(_priceFocusNode);
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'الرجاء ادخال اسم المنتج';
+                    }
+                  },
+                  onSaved: (value) {
+                    _EditedProduct = Product(
+                      title: value,
+                      description: _EditedProduct.description,
+                      price: _EditedProduct.price,
+                      imageUrl: _EditedProduct.imageUrl,
+                    );
+                  },
+                ),
+                TextFormField(
+                  focusNode: _priceFocusNode,
+                  decoration: InputDecoration(label: Text('السعر') ,
+                      prefixIcon: Icon(Icons.payment)
+                  ),
 
-                          );
-                        },
+                  textInputAction: TextInputAction.next,
+                  onFieldSubmitted: (_) {
+                    FocusScope.of(context).requestFocus(_descriptionFocusNode);
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'الرجاء ادخال سعر المنتج';
+                    }
+                    if (double.tryParse(value) == null) {
+                      return 'الرجاء ادخال رقم';
+                    }
+                    if (double.parse(value) <= 0){
+                      return 'الرجاء ادخال السعر اكبر من صفر';
+                    }
+
+                  },
+                  onSaved: (value) {
+                    _EditedProduct = Product(
+                      title: _EditedProduct.title,
+                      description: _EditedProduct.description,
+                      price: double.parse(value!),
+                      imageUrl: _EditedProduct.imageUrl,
+                    );
+                  },
+                ),
+                TextFormField(
+                  maxLines: 3,
+                  focusNode: _descriptionFocusNode,
+                  decoration: const InputDecoration(label: Text('الوصف'),
+                      prefixIcon: Icon(Icons.description_outlined)),
+                  keyboardType: TextInputType.multiline,
+                  textInputAction: TextInputAction.next,
+                  onFieldSubmitted: (_) {
+                    FocusScope.of(context).requestFocus(_imgFocusNode);
+                  },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'الرجاء ادخال الوصف.';
+                    }
+                    if (value.length < 10) {
+                      return 'الوصف يجب ان يكون على الاقل 10 حروف';
+                    }
+                  },
+                  onSaved: (value) {
+                    _EditedProduct = Product(
+                      title: _EditedProduct.title,
+                      description: value,
+                      price: _EditedProduct.price,
+                      imageUrl: _EditedProduct.imageUrl,
+                    );
+                  },
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.all(8),
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.grey),
+                      ),
+                      child: _imageUrlController.text.isEmpty
+                          ? Center(child: Image.asset('assets/images/picture.png' , fit: BoxFit.cover,))
+                          : Image.network(_imageUrlController.text,
+                              fit: BoxFit.cover),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          controller: _imageUrlController,
+                          textInputAction: TextInputAction.done,
+                          keyboardType: TextInputType.url,
+                          focusNode: _imgFocusNode,
+                          decoration: InputDecoration(label: Text('رابط الصورة') ,
+
+                          prefixIcon: Icon(Icons.link_outlined)
+                          ),
+                          onFieldSubmitted: (_) {
+                            return _saveForm() ;
+                          },
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'الرجاء ادخال رابط';
+                            }
+                            if (!value.startsWith('http') &&
+                                !value.startsWith('https') ) {
+                              return 'Please enter valid URL.';
+                            }
+                            if (!value.endsWith('.jpg') &&
+                                !value.endsWith('.png') &&
+                                !value.endsWith('.jpeg') ) {
+                              return 'الرجاء ادخال رابط لصورة';
+                            }
+                          },
+                          onSaved: (value) {
+                            _EditedProduct = Product(
+                              title: _EditedProduct.title,
+                              description: _EditedProduct.description,
+                              price: _EditedProduct.price,
+                              imageUrl: value,
+
+                            );
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -48,4 +48,9 @@ class UserProvider with ChangeNotifier {
     return [..._users];
   }
 
+
+
+ List<Users> allWarker( id){
+    return _users.where((element) => element.id  == id).toList() ;
+ }
 }

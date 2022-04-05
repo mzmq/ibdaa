@@ -3,7 +3,7 @@ import 'package:ibdaa/widgets/product_widgets/product_item.dart';
 
 import 'package:provider/provider.dart';
 
-import '../../models/product_provider/product_provider.dart';
+import '../../models/product_provider/product_provider_new.dart';
 
 
 class ProductGrid extends StatelessWidget {

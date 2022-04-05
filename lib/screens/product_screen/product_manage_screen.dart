@@ -3,7 +3,7 @@ import 'package:ibdaa/screens/product_screen/edit_product_screen.dart';
 import 'package:ibdaa/widgets/product_widgets/manage_product_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/product_provider/product_provider.dart';
+import '../../models/product_provider/product_provider_new.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/product_widgets/drawer_widget.dart';
 

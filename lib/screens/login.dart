@@ -22,7 +22,7 @@ Color gold =  ColorStyle().gold ;
 Color backgroundDark =  ColorStyle().backgroundDark ;
 Color hintDark =  ColorStyle().hintDark ;
 Color lightGray =  ColorStyle().lightGray ;
-Color barDark =  ColorStyle().barDark ;
+Color barDark =  ColorStyle().barDarkApp ;
 Color w =  ColorStyle().w ;
 
     return Scaffold(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ibdaa/screens/add_worker.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+
 
 import '../../models/product_provider/orders.dart';
 
@@ -126,7 +128,7 @@ class _ItemOrderWidgetState extends State<ItemOrderWidget> {
                                 });
                               },
                               icon: Icon(
-                                Icons.send_rounded,
+                              FontAwesomeIcons.whatsapp ,
                                 color: Colors.white,
                               ),
                               label:Text( 'ارسال الطلب الان')),

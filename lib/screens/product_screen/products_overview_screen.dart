@@ -5,7 +5,7 @@ import 'package:ibdaa/style/colorapp.dart';
 import 'package:ibdaa/widgets/product_widgets/drawer_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/product_provider/product_provider.dart';
+import '../../models/product_provider/product_provider_new.dart';
 import '../../widgets/drawer.dart';
 import '../../widgets/product_widgets/product_grid.dart';
 
@@ -32,7 +32,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
 
         title: Text('Shop'),
-        backgroundColor: ColorStyle().barDark,
+        backgroundColor: ColorStyle().barDarkApp,
         actions: [
           Consumer<CartProvider>(
             builder: (ctx, cartData, child) => Row(
